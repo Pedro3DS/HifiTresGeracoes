@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Transform[] positions; // pega posiçoes ancoras
+    [SerializeField] private Transform[] positions; // pega posições ancoras
     private Vector2 startPosition;
 
-    private int aux = 0; // variavel de seleçao 
+    private int aux = 0; // variavel de seleção 
 
     void Start()
     {
@@ -18,19 +18,33 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) // sobe posiçao
+        if (Input.GetKeyDown(KeyCode.UpArrow)) // sobe posição
         {
-            aux++;
-            ChangePosition();
+            if (aux + 1 == positions.Length) // filtro de posição para loop
+            { 
+                aux = 0;
+                ChangePosition();
+            } else {
+                aux++;
+                ChangePosition();
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow)) // desce posiçao
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) // desce posição
         {
-            aux--;
-            ChangePosition();
+            if (aux <= 0)  // filtro de posição para loop
+            {
+                aux = positions.Length - 1;
+                ChangePosition();
+            }
+            else
+            {
+                aux--;
+                ChangePosition();
+            }
         }
     }
 
-    void ChangePosition()
+    void ChangePosition() // método de movimentação
     {
         transform.position = new Vector2(transform.position.x, positions[aux].position.y);
     }
