@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float returnSpeed; // velocidade de retorno
     public float leftLimit; // limite esquerdo do mapa
     public float rightLimit; // limite direito do mapa
+    public GameObject SpawDrink; // spawnar cerveja
 
     private int aux = 0; // variavel de seleção 
 
@@ -55,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
         } else if (transform.position.x <= rightLimit) // retorno horizontal
         {
             ReturnPositionHorizontal();
-        } 
+        }
+        Spaw();
     }
 
     void ChangePositionVertical() // método de movimentação vertical
@@ -71,5 +73,15 @@ public class PlayerMovement : MonoBehaviour
     void ReturnPositionHorizontal() // método de movimentação horizontal
     {
         transform.Translate(lateralSpeed * Time.deltaTime, 0f, 0f);
+    }
+    public void Spaw() 
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && transform.position.x >= 0) { 
+            ChangePositionVertical(); 
+            Debug.Log("Tecla de espaço pressionada e position.x é maior ou igual a 0.");
+
+            // Instanciar um novo objeto
+            Instantiate(SpawDrink, transform.position, Quaternion.identity);
+        }   
     }
 }
