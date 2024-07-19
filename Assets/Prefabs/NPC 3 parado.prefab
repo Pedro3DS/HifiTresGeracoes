@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5661f2590747843b293d243c9e0124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  limitRight: 2.85
-  limitLeft: 0
+  walkSpeed: 3.5
+  limitRight: 2.17
+  limitLeft: -10

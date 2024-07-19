@@ -9,6 +9,7 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public ClientsManage npc1Prefab, npc2Prefab, npc3Prefab, npc4Prefab;
+    public GameObject[] npcs;
 
     [SerializeField] private Transform[] balcons; // pega posições ancoras
 
