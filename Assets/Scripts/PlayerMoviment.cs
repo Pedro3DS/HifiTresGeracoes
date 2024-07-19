@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.Translate(lateralSpeed * Time.deltaTime, 0f, 0f);
     }
-    public void Spaw() 
+    public void Spaw() // método de spaw da bebida
     {
         if (Input.GetKeyDown(KeyCode.Space) && transform.position.x >= 0) { 
             ChangePositionVertical(); 

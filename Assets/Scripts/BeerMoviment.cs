@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BeerMoviment : MonoBehaviour
 {
-    void Update()
+    void Update() // método de movimentação da bebida
     {
         transform.Translate(-10 * Time.deltaTime, 0, 0);
         if (gameObject.transform.position.x < -12f)
