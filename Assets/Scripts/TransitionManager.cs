@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartManager : MonoBehaviour
+public class TransitionManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,12 +14,10 @@ public class StartManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartGame();
+        
     }
 
-    private void StartGame(){
-        if(Input.anyKeyDown){
-            SceneManager.LoadScene("TransitionScene70");
-        }
+    public void TrasitionTo(string scene){
+        SceneManager.LoadScene(scene);
     }
 }
